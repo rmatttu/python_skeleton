@@ -5,7 +5,7 @@ import logging.config
 
 def main():
     # ログ設定ファイルからログ設定を読み込み
-    logging.config.fileConfig('system/logging.conf')
+    logging.config.fileConfig('log.ini')
 
     logger = logging.getLogger()
 
@@ -17,7 +17,7 @@ def main():
     logger.warning('warning')
 
     conf = configparser.ConfigParser()
-    conf.read('./conf.ini', 'UTF-8')
+    conf.read('conf.ini', 'UTF-8')
 
     if conf.get('settings', 'bool_test') == "True":
         logger.info(conf.get('settings', 'nihongo'))
