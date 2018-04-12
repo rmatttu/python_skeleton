@@ -1,5 +1,6 @@
 # vim: fileencoding=utf-8
 
+import configparser
 import logging.config
 
 def main():
@@ -14,6 +15,13 @@ def main():
 
     logger.info('info')
     logger.warning('warning')
+
+    conf = configparser.ConfigParser()
+    conf.read('./conf.ini', 'UTF-8')
+
+    if conf.get('settings', 'bool_test') == "True":
+        logger.info(conf.get('settings', 'nihongo'))
+
 
 if __name__ == '__main__':
     main()
